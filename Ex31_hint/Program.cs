@@ -12,11 +12,23 @@ namespace Ex31_hint
             tank1.bullet = 10;
             Tank tank2 = new Tank("がんタンク", 10000, 125);
             tank2.bullet = 5;
-            Character[] characters = { character1, character2, tank1, tank2 };
+            Cow cow = new Cow("黒毛和牛", 5000, 60);
+            Cat cat = new Cat("野良猫", 200, 15);
+            Honet honet = new Honet("スズメバチ", 100, 0);
+            Character[] characters = { character1, character2, tank1, tank2, cow, cat, honet };
             for(var i = 1; i < characters.Length; i++)
             {
                 characters[i].Attack(character1);
             }
+            character2.Attack(cat);
+            tank1.Attack(cow);
+            tank2.Attack(character2);
+            cow.Attack(character2);
+            cat.Attack(character2);
+            honet.Attack(tank1);
+            honet.Attack(cow);
+            honet.Attack(character2);
+            honet.Attack(honet);
         }
     }
 }
